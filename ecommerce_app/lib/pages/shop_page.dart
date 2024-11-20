@@ -20,8 +20,16 @@ class _ShopPageState extends State<ShopPage> {
     showDialog(
         context: context,
         builder: (context) => const AlertDialog(
-              title: Text('Succesfully added!'),
-              content: Text('Check your cart'),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              title: Text(
+                'Succesfully added!',
+                textAlign: TextAlign.center,
+              ),
+              content: Text(
+                'Check your cart',
+                textAlign: TextAlign.center,
+              ),
             ));
   }
 
