@@ -13,6 +13,8 @@ Implemented coding practices by creating custom widget similar to that of the on
 
 Implemented Google fonts for some form of aesthetic on the app itself.
 
+Test git commit config for vscode.
+
 <!-- end of note -->
 
 A few resources to get you started if this is your first Flutter project:
