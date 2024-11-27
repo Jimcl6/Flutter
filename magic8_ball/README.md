@@ -6,14 +6,16 @@ A new Flutter project.
 
 <!-- note to self: -->
 
-In this project I'm implementing everything that I've learned thus far from Max's course on Udemy.
+In this project I'm implementing everything that I've learned thus far from Max's course on Udemy, and from [Mitch Koko's](https://www.youtube.com/@createdbykoko) youtube channel.
 
 Implemented the Random module
 Implemented coding practices by creating custom widget similar to that of the one in the course.
 
 Implemented Google fonts for some form of aesthetic on the app itself.
 
-Test git commit config for vscode.
+Changed on tap to shake.
+
+_Integrated shake gesture to give the app a much better feel as if the use were really holding the Magic 8 Ball toy._
 
 <!-- end of note -->
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:shake_gesture/shake_gesture.dart';
+
 class MagicBall extends StatefulWidget {
   const MagicBall({super.key});
 
@@ -24,8 +26,8 @@ class _MagicBallState extends State<MagicBall> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(25.0),
-      child: GestureDetector(
-        onTap: shakeBall,
+      child: ShakeGesture(
+        onShake: shakeBall,
         child: Expanded(
           child: Image.asset(imageLink),
         ),
