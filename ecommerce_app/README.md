@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is me working on my knowledgebase thus far on fluter after learning from [Mitch Koko's](https://www.youtube.com/@createdbykoko) tutorials thus far on his Youtube Channel.
 
 A few resources to get you started if this is your first Flutter project:
 
