@@ -1,9 +1,11 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BtnRoll extends StatelessWidget {
   String text;
-  void Function()? onTap;
+  void Function() onTap;
   BtnRoll({super.key, required this.onTap, required this.text});
 
   @override
@@ -12,7 +14,10 @@ class BtnRoll extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: 150,
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 15,
+          vertical: 10,
+        ),
         decoration: BoxDecoration(
             border: Border.all(
               color: Colors.white,
