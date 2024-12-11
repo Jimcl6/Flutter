@@ -19,8 +19,23 @@ class BtnRoll extends StatelessWidget {
           vertical: 10,
         ),
         decoration: BoxDecoration(
+            color: Colors.red,
+            boxShadow: const [
+              BoxShadow(
+                color: Color.fromARGB(255, 255, 185, 185),
+                offset: Offset(-2, -2),
+                blurRadius: 10,
+                spreadRadius: 1,
+              ),
+              BoxShadow(
+                color: Color.fromARGB(255, 129, 0, 0),
+                offset: Offset(4, 4),
+                blurRadius: 10,
+                spreadRadius: 1,
+              ),
+            ],
             border: Border.all(
-              color: Colors.white,
+              color: Colors.transparent,
               width: 2,
             ),
             borderRadius: BorderRadius.circular(10)),
