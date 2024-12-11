@@ -14,6 +14,16 @@ currentQuestion.answers.map(
 ),
 ```
 
+Hence, the code will now look like this:
+
+```
+...currentQuestion.answers.map(
+    (answer) {
+    return AnswerButton(onTap: () {}, child: answer);
+    },
+),
+```
+
 Code above is a sample of how we can iterate through the our Dart List. However this code does not work well with the Column widget, since this widget's parameter accepts only widgets! To get around this we use the "..." spread operator.
 
 A few resources to get you started if this is your first Flutter project:
