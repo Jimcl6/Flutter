@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+  final void Function() startQuiz;
+  const StartScreen(this.startQuiz, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 25,
           ),
-          BtnStart(title: 'Start Quiz', onTap: () {}),
+          BtnStart(title: 'Start Quiz', onTap: startQuiz),
         ],
       ),
     );

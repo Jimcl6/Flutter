@@ -17,11 +17,11 @@ class BtnStart extends StatelessWidget {
         width: 180,
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         decoration: BoxDecoration(
-          color: Colors.deepPurple.shade800,
+          color: Colors.deepPurple.shade700,
           borderRadius: const BorderRadius.all(Radius.circular(20)),
           boxShadow: const [
             BoxShadow(
-              color: Color.fromARGB(103, 255, 255, 255),
+              color: Colors.white38,
               offset: Offset(
                 0,
                 0,
