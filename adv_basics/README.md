@@ -139,10 +139,14 @@ decVariable = decVariable - 1;
 
 ```
 
-Next, we add call the method we declared earlier into out answer button parameter that accepts functions `onTap`
+Next, we add/call the method we declared earlier into out answer button parameter that accepts functions `onTap`
 
 ```
 AnswerButton(onTap: () {}, child: answer);
+
+<!-- to this -->
+
+AnswerButton(onTap: answerQuestion, child: answer);
 
 ```
 
