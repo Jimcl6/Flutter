@@ -150,12 +150,19 @@ AnswerButton(onTap: answerQuestion, child: answer);
 
 ```
 
+Now since we're doing this inside a stateful widget. In order for the changes to apply, we must use the setState(){} method. So it would force our app to rebuild our app and implement the changes. <br>
+Syntax:- <br>
+
+```
+void answerQuestion() {
+  setState() {
+    currentQuestionIndex++;
+  };
+}
+
+```
+
 !!//----------------------------------------------------------------------//!!
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
