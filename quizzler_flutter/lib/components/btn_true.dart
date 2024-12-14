@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class BtnTrue extends StatelessWidget {
   final Icon icon;
   final String text;
-  final void Function()? onTap;
+  final Function()? onTap;
   const BtnTrue(
       {super.key, required this.text, required this.onTap, required this.icon});
 

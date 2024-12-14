@@ -18,6 +18,5 @@ class Quizzler extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
