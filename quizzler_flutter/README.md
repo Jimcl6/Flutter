@@ -18,7 +18,7 @@ We’re going to make a quiz app that tests your general knowledge. As one of th
 
 ## Notes to self
 
-### Using the <DataType>
+### Using the < DataType >
 
 Using the <Datatype> allows us to explicitly declare the kind of data types we want our variables to contain. e.g. <br>
 syntax:- <br>
