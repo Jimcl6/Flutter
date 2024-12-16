@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
 class BtnFalse extends StatelessWidget {
-  final Icon icon;
   final String text;
   final void Function()? onTap;
-  const BtnFalse(
-      {super.key, required this.text, required this.onTap, required this.icon});
+  const BtnFalse({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,10 @@ class BtnFalse extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            icon,
+            const Icon(
+              Icons.close,
+              color: Colors.white,
+            ),
             const SizedBox(width: 25),
             Text(
               text,

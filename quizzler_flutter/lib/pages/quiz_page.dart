@@ -2,8 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:quizzler_flutter/components/btn_true.dart';
+import 'package:quizzler_flutter/components/correct_icon.dart';
+import 'package:quizzler_flutter/components/wrong_icon.dart';
 
 import '../components/btn_false.dart';
+import '../models/question.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key});
@@ -14,62 +17,46 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   int currentQuestionIndex = 0;
-  List<Icon> scoreKeeper = [];
-  List<String> questions = [
-    'You can lead a cow down stairs but not up stairs.',
-    'Approximately one quarter of human bones are in the feet.',
-    'A slug\'s blood is green.',
-  ];
+  List<Widget> scoreKeeper = [];
 
-  List<bool> answers = [
-    false,
-    true,
-    true,
+  List<Question> questions = [
+    Question(
+        questionText: 'You can lead a cow down stairs but not up stairs.',
+        questionAnswer: false),
+    Question(
+        questionText:
+            'Approximately one quarter of human bones are in the feet.',
+        questionAnswer: true),
+    Question(questionText: 'A slug\'s blood is green.', questionAnswer: true),
   ];
 
   void trueChecker() {
-    bool correctAnswer = answers[currentQuestionIndex];
+    bool correctAnswer = questions[currentQuestionIndex].questionAnswer;
 
     if (correctAnswer != true) {
       setState(() {
-        scoreKeeper.add(Icon(
-          Icons.close,
-          size: 25,
-          color: Colors.red,
-        ));
+        scoreKeeper.add(WrongAnsIcon());
         currentQuestionIndex++;
       });
     } else {
       setState(() {
-        scoreKeeper.add(Icon(
-          Icons.check,
-          size: 25,
-          color: Colors.green,
-        ));
+        scoreKeeper.add(CorrectAnsIcon());
         currentQuestionIndex++;
       });
     }
   }
 
   void falseChecker() {
-    bool correctAnswer = answers[currentQuestionIndex];
+    bool correctAnswer = questions[currentQuestionIndex].questionAnswer;
 
     if (correctAnswer != false) {
       setState(() {
-        scoreKeeper.add(Icon(
-          Icons.close,
-          size: 25,
-          color: Colors.red,
-        ));
+        scoreKeeper.add(WrongAnsIcon());
         currentQuestionIndex++;
       });
     } else {
       setState(() {
-        scoreKeeper.add(Icon(
-          Icons.check,
-          size: 25,
-          color: Colors.green,
-        ));
+        scoreKeeper.add(CorrectAnsIcon());
         currentQuestionIndex++;
       });
     }
@@ -87,7 +74,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[currentQuestionIndex],
+                questions[currentQuestionIndex].questionText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -103,10 +90,6 @@ class _QuizPageState extends State<QuizPage> {
               child: BtnTrue(
                 onTap: trueChecker,
                 text: 'True',
-                icon: const Icon(
-                  Icons.check,
-                  color: Colors.white,
-                ),
               )),
         ),
         Expanded(
@@ -115,17 +98,12 @@ class _QuizPageState extends State<QuizPage> {
             child: BtnFalse(
               onTap: falseChecker,
               text: 'False',
-              icon: const Icon(
-                Icons.close,
-                color: Colors.white,
-              ),
             ),
           ),
         ),
         const SizedBox(
           height: 25,
         ),
-        //TODO: Add a Row here as your score keeper
         Row(
           children: scoreKeeper,
         )

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
 class BtnTrue extends StatelessWidget {
-  final Icon icon;
   final String text;
   final Function()? onTap;
-  const BtnTrue(
-      {super.key, required this.text, required this.onTap, required this.icon});
+  const BtnTrue({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,10 @@ class BtnTrue extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            icon,
+            const Icon(
+              Icons.check,
+              color: Colors.white,
+            ),
             const SizedBox(width: 25),
             Text(
               text,
