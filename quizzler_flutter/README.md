@@ -79,7 +79,7 @@ class Question {
 }
 ```
 
-Next up, we declare our constructor([this will be explained later](Constructors)) by using the following syntax:- <br>
+Next up, we declare our constructor([this will be explained later](#constructors)) by using the following syntax:- <br>
 
 ```
 class Question {
