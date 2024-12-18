@@ -194,4 +194,19 @@ class Human {
 
 ```
 
-Now constructors allow us to predefine the properties of our class or how we want to build our object. With the code above, this is an example of how we can properly associate our properties with the parameters inside our constructors.
+Now constructors allow us to predefine the properties of our class or how we want to build our object. With the code above, this is an example of how we can properly associate our properties with the parameters inside our constructors. Hence allowing us to assign proper values to the class' properties.
+
+## Object Oriented Programming:
+
+Four pillars of Object Oriented Programming are as follows:
+
+- **Abstraction**
+- **Encapsulation**
+- **Inheritance**
+- **Polymorphism**
+
+### Abstraction
+
+- This is sort of an act of breaking something complex into smaller pieces to make it more abstract, or in programming this is what we do when we try to modularize our code, by hiding the processes/brain of our app.
+
+### Encapsulation
