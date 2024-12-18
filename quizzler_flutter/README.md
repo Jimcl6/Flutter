@@ -79,7 +79,7 @@ class Question {
 }
 ```
 
-Next up, we declare our constructor([this will be explained later]()) by using the following syntax:- <br>
+Next up, we declare our constructor([this will be explained later](Constructors)) by using the following syntax:- <br>
 
 ```
 class Question {
@@ -169,5 +169,29 @@ Car myCar = Car();
 
 ```
 
-So in this case we must first define the type, in this case it's our class **"Car"**, followed by giving our object a name which in the code above would be **"myCar"**. <br>
+So in this case we must first define the type of object we want to create by calling the class we have predefined, in this case it's our class **"Car"**, followed by giving our object a name which in the code above would be **"myCar"**. <br>
 Then we finally set it to equal a new version of our class. Now the code above shows `Car();`, adding the parentheses after the name of our class allows us to define a new object from that class/blueprint. <br>
+
+## Constructors
+
+A constructor is like the setup process for your toy car. It’s a special function that automatically runs when you create (or "build") the object. It sets everything up, like giving the car its color, attaching the wheels, or charging the battery.
+
+<br>
+syntax:-
+
+```
+<!-- class -->
+class Human {
+
+  <!-- properties -->
+  double height;
+  int? age;
+
+  <!-- this is an example of a constructor. -->
+  Human({required this.height});
+
+}
+
+```
+
+Now constructors allow us to predefine the properties of our class or how we want to build our object. With the code above, this is an example of how we can properly associate our properties with the parameters inside our constructors.
