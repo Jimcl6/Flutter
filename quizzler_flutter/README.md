@@ -97,7 +97,7 @@ By doing so, we are now able to use this constructor as pretty much of a similar
 
 ### Class
 
-If we were to explain this analogically, a class is similar to that of a blueprint, It's pretty much the paper, where we plan on how the product, building, structure of our app will be built.
+If we were to explain this analogically, a class is similar to that of a blueprint, It's pretty much the paper, where we plan on how the product, building or structure of our app will be built.
 <br>
 <br>
 
@@ -108,21 +108,66 @@ Now an object is the actualy product, building, or (in this sense) the actual ap
 This is the part where we plan on how it will function, how they will work, by creating these classes.
 <br>
 
-### Important things that a class has.
+## Important things that a class has.
 
-## Property
+### Property
 
 If we're building a car these would be it's attributes, so these would be, how many seats it has, the number of wheels that car will have, whether if it's a manual or automatic transmission car, the color of the car, basically anything that involves the characteristic of the object.
 
 <br>
-<br>
 
 But in a programming/coding sense, these would be the variables inside our class, and thus these are now known as **Properties or Fields**
 
-## Methods
+### Methods
 
 These are the actions that the object can do. The actions that will eventually get created, will be able to perform. So in the case of our car object:
 
 <br>
 
 These would be, to drive, to brake, or to turn around, etc.. These methods are actions that the object will be able to do, that we will define in our class, even before the object gets built.
+<br>
+Now in a programming/coding sense. These would be the functions within our class. Functions that contain codeblocks that tell our app what to do whenever it gets called.
+
+## Object
+
+Now an object, let's use the car analogy as an example, an object would be the car, it's the object that actually performs the pre-planned action inside the class. <br>
+Such as moving, or it actually has the characteristics(in this case this are our properties), which we defined in our class such as color, numberOfDoors property.
+
+### Paths of creating an object
+
+The two paths of creating an object are as follows:
+
+#### Creating the class
+
+We must first create our class because this will serve as our blueprint that will define everything about the object that will get created.
+<br>
+syntax:-
+
+```
+class Car {
+
+  <!-- theses are examples of properties. -->
+  int numberOfDoors = 4;
+  var color = "green";
+  var engineType = "V8";
+
+
+  <!-- this is an example of a method. -->
+  void drive() {
+    //code block here...
+    print('The Wheels start turning');
+  }
+}
+```
+
+#### Creating the object
+
+To create the object from the class use the following syntax:-
+
+```
+Car myCar = Car();
+
+```
+
+So in this case we must first define the type, in this case it's our class **"Car"**, followed by giving our object a name which in the code above would be **"myCar"**. <br>
+Then we finally set it to equal a new version of our class. Now the code above shows `Car();`, adding the parentheses after the name of our class allows us to define a new object from that class/blueprint. <br>
