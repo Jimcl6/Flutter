@@ -121,8 +121,10 @@ But in a programming/coding sense, these would be the variables inside our class
 ### Methods
 
 These are the actions that the object can do. The actions that will eventually get created, will be able to perform. So in the case of our car object:
+
 <br>
 These would be, to drive, to brake, or to turn around, etc.. These methods are actions that the object will be able to do, that we will define in our class, even before the object gets built.
+
 <br>
 Now in a programming/coding sense. These would be the functions within our class. Functions that contain codeblocks that tell our app what to do whenever it gets called.
 
