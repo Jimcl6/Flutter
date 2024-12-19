@@ -23,7 +23,7 @@ class _QuizPageState extends State<QuizPage> {
 
   void trueChecker() {
     bool correctAnswer =
-        quizBrain.questions[currentQuestionIndex].questionAnswer;
+        quizBrain.getQuestionAnswer(questionNum: currentQuestionIndex);
 
     if (correctAnswer != true) {
       setState(() {
@@ -40,7 +40,7 @@ class _QuizPageState extends State<QuizPage> {
 
   void falseChecker() {
     bool correctAnswer =
-        quizBrain.questions[currentQuestionIndex].questionAnswer;
+        quizBrain.getQuestionAnswer(questionNum: currentQuestionIndex);
 
     if (correctAnswer != false) {
       setState(() {
@@ -67,7 +67,9 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBrain.questions[currentQuestionIndex].questionText,
+                quizBrain.getQuestionText(
+                  questionNum: currentQuestionIndex,
+                ),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,

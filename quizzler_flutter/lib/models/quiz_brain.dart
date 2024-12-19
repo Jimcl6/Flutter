@@ -1,7 +1,7 @@
 import 'package:quizzler_flutter/models/question.dart';
 
 class QuizBrain {
-  List<Question> questions = [
+  final List<Question> _questions = [
     Question(
         questionText: 'Some cats are actually allergic to humans',
         questionAnswer: true),
@@ -47,4 +47,12 @@ class QuizBrain {
             'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
         questionAnswer: true),
   ];
+
+  String getQuestionText({required int questionNum}) {
+    return _questions[questionNum].questionText;
+  }
+
+  bool getQuestionAnswer({required int questionNum}) {
+    return _questions[questionNum].questionAnswer;
+  }
 }
