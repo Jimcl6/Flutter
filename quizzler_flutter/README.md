@@ -371,7 +371,43 @@ Encapsulation ensures data security, provides controlled access, and makes your 
 
 ## What is Inheritance?
 
-Inheritance is a core concept in Object-Oriented Programming (OOP) that allows a class (called a **child class** or **subclass**) to inherit properties and behaviors from another class (called a **parent class** or **superclass**). This enables code reuse and establishes a relationship between classes.
+Inheritance is a core concept in Object-Oriented Programming (OOP) that allows a class (called a **child class** or **subclass**) to inherit properties and behaviors from another class (called a **parent class** or **superclass**). This enables code reuse and establishes a relationship between classes. Now the syntax for inheritance would be as follows: <br>
+
+syntax:-
+
+```dart
+
+void main() {
+  ParentClass mom = ParentClass();
+
+  print(mom.eyeColor) //Output: this prints the value "brown"
+
+  ChildClass son = ChildClass();
+
+  print(son.eyeColor) //Output: this prints the value "brown" due to the fact that the 'ChildClass' class has inherited the property "eyeColor" from the parentClass "ParentClass".
+}
+
+class ParentClass {
+  String eyeColor = 'brown';
+  double height = 15.0;
+
+  void nagger() {
+    print('blah blah blah blah');
+  }
+}
+
+
+class ChildClass extends ParentClass {
+  int weight = 40;
+
+  void extrovert() {
+    print('friends everywhere.');
+
+  }
+}
+```
+
+_Note_: to make our child class inherit properties and methods from our parentClass we use the **_extends_** keyword
 
 ---
 
