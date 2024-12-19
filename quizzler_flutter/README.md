@@ -23,7 +23,7 @@ We’re going to make a quiz app that tests your general knowledge. As one of th
 Using the <Datatype> allows us to explicitly declare the kind of data types we want our variables to contain. e.g. <br>
 syntax:- <br>
 
-```
+```dart
 List<Widget> scoreKeeper = const [
     Icon(
       Icons.close,
@@ -51,7 +51,7 @@ List<Widget> scoreKeeper = const [
 The list above has been declared to only accept Widgets: Now check out the code below: <br>
 syntax:- <br>
 
-```
+```dart
 List<String> myString = ['a', 'b' ,'c'];
 ```
 
@@ -143,7 +143,7 @@ We must first create our class because this will serve as our blueprint that wil
 <br>
 syntax:-
 
-```
+```dart
 class Car {
 
   <!-- theses are examples of properties. -->
@@ -179,7 +179,7 @@ A constructor is like the setup process for your toy car. It’s a special funct
 <br>
 syntax:-
 
-```
+```dart
 <!-- class -->
 class Human {
 
@@ -366,3 +366,147 @@ void main() {
 ---
 
 Encapsulation ensures data security, provides controlled access, and makes your code easier to maintain and more reliable.
+
+# Inheritance in Object-Oriented Programming
+
+## What is Inheritance?
+
+Inheritance is a core concept in Object-Oriented Programming (OOP) that allows a class (called a **child class** or **subclass**) to inherit properties and behaviors from another class (called a **parent class** or **superclass**). This enables code reuse and establishes a relationship between classes.
+
+---
+
+## Key Features of Inheritance
+
+1. **Code Reusability**:
+
+   - Common properties and methods are defined in the parent class and reused by child classes, reducing code duplication.
+
+2. **Hierarchy Establishment**:
+
+   - Inheritance allows for hierarchical relationships, where specialized classes extend the functionality of more general classes.
+
+3. **Overriding**:
+
+   - Child classes can override methods from the parent class to provide specialized behavior while retaining the base implementation.
+
+4. **Polymorphism**:
+   - Inherited methods can be overridden to exhibit different behavior for objects of child classes, supporting polymorphism.
+
+---
+
+## Real-Life Analogy: Employees in a Company
+
+Think of a company:
+
+1. **General Properties and Behavior**:
+
+   - Every employee has properties like `name` and `ID` and behaviors like `work()`.
+
+2. **Specialized Employees**:
+
+   - A **Manager** is a type of employee with additional responsibilities, such as `conductMeeting()`.
+   - A **Developer** is another type of employee with specific skills, such as `writeCode()`.
+
+3. **Inheritance in Action**:
+   - The `Employee` class defines shared attributes and methods, while `Manager` and `Developer` inherit and extend this base functionality.
+
+---
+
+## Example in Dart
+
+Here’s how inheritance is implemented in Dart using the company analogy:
+
+```dart
+// Parent class
+class Employee {
+  String name;
+  int id;
+
+  Employee(this.name, this.id);
+
+  // General behavior
+  void work() {
+    print('$name is working.');
+  }
+}
+
+// Child class (inherits from Employee)
+class Manager extends Employee {
+  Manager(String name, int id) : super(name, id);
+
+  // Specialized behavior
+  void conductMeeting() {
+    print('$name is conducting a meeting.');
+  }
+}
+
+// Child class (inherits from Employee)
+class Developer extends Employee {
+  Developer(String name, int id) : super(name, id);
+
+  // Specialized behavior
+  void writeCode() {
+    print('$name is writing code.');
+  }
+}
+
+void main() {
+  // Create objects of Manager and Developer
+  Manager manager = Manager('Alice', 1);
+  Developer developer = Developer('Bob', 2);
+
+  // Access inherited and specialized behaviors
+  manager.work(); // Output: Alice is working.
+  manager.conductMeeting(); // Output: Alice is conducting a meeting.
+
+  developer.work(); // Output: Bob is working.
+  developer.writeCode(); // Output: Bob is writing code.
+}
+```
+
+---
+
+## How Inheritance Works in the Example
+
+1. **Parent Class**:
+
+   - The `Employee` class defines common properties (`name`, `id`) and behaviors (`work()`).
+
+2. **Child Classes**:
+
+   - The `Manager` and `Developer` classes inherit from the `Employee` class and gain access to its properties and methods.
+
+3. **Specialized Behavior**:
+
+   - The `Manager` class adds the `conductMeeting()` method, and the `Developer` class adds the `writeCode()` method.
+
+4. **Reusability**:
+   - Both child classes reuse the `work()` method defined in the `Employee` class without redefining it.
+
+---
+
+## Benefits of Inheritance
+
+- **Reduces Code Duplication**:
+
+  - Shared attributes and methods are written once in the parent class and reused by child classes.
+
+- **Promotes Code Organization**:
+
+  - Establishes a clear hierarchy and specialization for related classes.
+
+- **Enables Extensibility**:
+  - New child classes can be added without modifying the parent class.
+
+---
+
+## Key Points to Remember
+
+- A child class inherits all non-private properties and methods from the parent class.
+- Use the `super` keyword to access the parent class’s constructor or methods.
+- Override methods in the child class to provide specialized behavior.
+- Inheritance supports code reusability, extensibility, and polymorphism.
+
+---
+
+Inheritance simplifies code management by organizing related classes into a clear hierarchy, enabling reuse and extensibility.
