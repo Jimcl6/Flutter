@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:quizzler_flutter/components/btn_true.dart';
 import 'package:quizzler_flutter/components/correct_icon.dart';
 import 'package:quizzler_flutter/components/wrong_icon.dart';
-
+//TODO: Step 2 - Import the rFlutter_Alert package here.
 import '../components/btn_false.dart';
 import '../models/quiz_brain.dart';
 
@@ -18,41 +18,27 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  int currentQuestionIndex = 0;
   List<Widget> scoreKeeper = [];
 
-  void trueChecker() {
-    bool correctAnswer =
-        quizBrain.getQuestionAnswer(questionNum: currentQuestionIndex);
+  void answerChecker(bool chosenAnswer) {
+    bool correctAnswer = quizBrain.getQuestionAnswer();
 
-    if (correctAnswer != true) {
-      setState(() {
-        scoreKeeper.add(WrongAnsIcon());
-        currentQuestionIndex++;
-      });
-    } else {
-      setState(() {
+    setState(() {
+      //TODO: Step 4 - Use IF/ELSE to check if we've reached the end of the quiz. If true, execute Part A, B, C, D.
+      //TODO: Step 4 Part A - show an alert using rFlutter_alert (remember to read the docs for the package!)
+      //HINT! Step 4 Part B is in the quiz_brain.dart
+      //TODO: Step 4 Part C - reset the questionNumber,
+      //TODO: Step 4 Part D - empty out the scoreKeeper.
+
+      //TODO: Step 5 - If we've not reached the end, ELSE do the answer checking steps below 👇
+      if (chosenAnswer == correctAnswer) {
         scoreKeeper.add(CorrectAnsIcon());
-        currentQuestionIndex++;
-      });
-    }
-  }
-
-  void falseChecker() {
-    bool correctAnswer =
-        quizBrain.getQuestionAnswer(questionNum: currentQuestionIndex);
-
-    if (correctAnswer != false) {
-      setState(() {
+      } else {
         scoreKeeper.add(WrongAnsIcon());
-        currentQuestionIndex++;
-      });
-    } else {
-      setState(() {
-        scoreKeeper.add(CorrectAnsIcon());
-        currentQuestionIndex++;
-      });
-    }
+      }
+
+      quizBrain.nextQuestion();
+    });
   }
 
   @override
@@ -67,9 +53,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBrain.getQuestionText(
-                  questionNum: currentQuestionIndex,
-                ),
+                quizBrain.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -83,7 +67,7 @@ class _QuizPageState extends State<QuizPage> {
           child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: BtnTrue(
-                onTap: trueChecker,
+                onTap: () => answerChecker(true),
                 text: 'True',
               )),
         ),
@@ -91,7 +75,7 @@ class _QuizPageState extends State<QuizPage> {
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: BtnFalse(
-              onTap: falseChecker,
+              onTap: () => answerChecker(false),
               text: 'False',
             ),
           ),

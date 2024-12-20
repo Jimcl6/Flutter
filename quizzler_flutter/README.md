@@ -546,3 +546,119 @@ void main() {
 ---
 
 Inheritance simplifies code management by organizing related classes into a clear hierarchy, enabling reuse and extensibility.
+
+# Polymorphism in Object-Oriented Programming
+
+## What is Polymorphism?
+
+Polymorphism is a core concept in Object-Oriented Programming (OOP) that allows objects to take on many forms. It enables a single interface or method to be used by different types of objects, leading to flexible and reusable code. In simpler terms, it means **one name, multiple forms**.
+
+---
+
+## Types of Polymorphism
+
+1. **Compile-Time Polymorphism (Method Overloading)**:
+
+   - The same method name is used for different tasks but distinguished by the number or type of parameters.
+   - Example: A `print()` method could handle printing text, numbers, or a combination.
+
+2. **Run-Time Polymorphism (Method Overriding)**:
+   - A child class provides a specific implementation for a method that is already defined in its parent class.
+   - The decision of which method to call is made at runtime.
+
+---
+
+## Real-Life Analogy: A Manager Giving Instructions
+
+Imagine a manager in a company giving instructions:
+
+1. If the manager is instructing a **developer**, the instruction might be to **write code**.
+2. If the manager is instructing a **designer**, the instruction might be to **design a UI**.
+3. The **instruction** interface remains the same, but the action taken depends on the employee type (developer or designer).
+
+---
+
+## Example in Dart: Polymorphism with Employees
+
+```dart
+// Parent class
+class Employee {
+  String name;
+
+  Employee(this.name);
+
+  // Generic method to perform a task
+  void performDuties() {
+    print('$name is performing general duties.');
+  }
+}
+
+// Child class 1
+class Developer extends Employee {
+  Developer(String name) : super(name);
+
+  @override
+  void performDuties() {
+    print('$name is writing code.');
+  }
+}
+
+// Child class 2
+class Designer extends Employee {
+  Designer(String name) : super(name);
+
+  @override
+  void performDuties() {
+    print('$name is designing a user interface.');
+  }
+}
+
+// Main function demonstrating polymorphism
+void main() {
+  // List of employees
+  List<Employee> employees = [
+    Developer('Alice'),
+    Designer('Bob'),
+    Employee('Charlie'),
+  ];
+
+  // Call performDuties on each employee
+  for (var employee in employees) {
+    employee.performDuties();
+  }
+}
+```
+
+### Output
+
+```
+Alice is writing code.
+Bob is designing a user interface.
+Charlie is performing general duties.
+```
+
+---
+
+## How Polymorphism Works in the Example
+
+1. **Parent Class**:
+   - The `Employee` class defines a `performDuties()` method.
+2. **Child Classes**:
+   - `Developer` and `Designer` override the `performDuties()` method with their specific implementation.
+3. **Dynamic Dispatch**:
+   - At runtime, Dart determines which `performDuties()` method to invoke based on the object's type.
+
+---
+
+## Benefits of Polymorphism
+
+- **Code Flexibility**:
+  - Write code that works for a parent class but behaves differently depending on the child class instance.
+- **Reduced Coupling**:
+  - Work with general interfaces rather than specific implementations.
+- **Scalability**:
+  - Add new types of classes without changing existing code.
+
+---
+
+Polymorphism promotes clean, scalable, and reusable code by allowing multiple forms of behavior under a unified interface.
