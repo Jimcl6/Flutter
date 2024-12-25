@@ -662,3 +662,166 @@ Charlie is performing general duties.
 ---
 
 Polymorphism promotes clean, scalable, and reusable code by allowing multiple forms of behavior under a unified interface.
+
+---
+
+# Understanding Constructors in Object-Oriented Programming (OOP)
+
+## What is a Constructor?
+
+A **constructor** is a special type of function in a class that gets called automatically when you create an object of that class. Think of it as a way to prepare or set up your object with some initial values or configurations.
+
+---
+
+## Why Use Constructors?
+
+1. **Initialize Variables**: When you create an object, the constructor can assign initial values to the object’s variables (properties).
+2. **Setup Logic**: You can use the constructor to perform tasks like setting up default values or doing some preparatory steps for the object.
+3. **Improve Readability**: Instead of manually assigning values to properties every time you create an object, constructors let you do it in one step.
+
+---
+
+## How Constructors Work?
+
+When you create an object, the constructor is executed. If you don’t define a constructor, Dart provides a default one that does nothing. But if you need to set initial values, you define your own constructor.
+
+---
+
+## Example in Dart
+
+Here’s how constructors work in Dart:
+
+```dart
+class Person {
+  String name; // property
+  int age; // property
+
+  // Constructor
+  Person(String name, int age) {
+    this.name = name; // 'this' refers to the current instance
+    this.age = age;
+  }
+
+  // Method to display details
+  void displayInfo() {
+    print("Name: \$name, Age: \$age");
+  }
+}
+
+void main() {
+  // Create an object of the class using the constructor
+  Person person1 = Person("Alice", 25);
+  person1.displayInfo(); // Output: Name: Alice, Age: 25
+
+  Person person2 = Person("Bob", 30);
+  person2.displayInfo(); // Output: Name: Bob, Age: 30
+}
+```
+
+### Key Points
+
+1. **`Person(String name, int age)`**: This is the constructor. It takes parameters (`name` and `age`) and assigns them to the object’s properties.
+2. **`this.name` and `this.age`**: The keyword `this` refers to the object being created. It’s used to distinguish between class properties and constructor parameters.
+
+---
+
+## Named Constructors in Dart
+
+In Dart, you can create multiple constructors using **named constructors**. This is helpful when you want different ways to create an object.
+
+```dart
+class Car {
+  String model;
+  int year;
+
+  // Regular Constructor
+  Car(this.model, this.year);
+
+  // Named Constructor
+  Car.electric() {
+    model = "Tesla Model 3";
+    year = 2023;
+  }
+
+  void displayInfo() {
+    print("Model: \$model, Year: \$year");
+  }
+}
+
+void main() {
+  Car car1 = Car("Toyota", 2022);
+  car1.displayInfo(); // Output: Model: Toyota, Year: 2022
+
+  Car car2 = Car.electric();
+  car2.displayInfo(); // Output: Model: Tesla Model 3, Year: 2023
+}
+```
+
+---
+
+## Constructor with Default Values
+
+You can also provide default values in a constructor:
+
+```dart
+class Student {
+  String name;
+  int grade;
+
+  Student({this.name = "Unknown", this.grade = 0}); // Default values
+
+  void displayInfo() {
+    print("Name: \$name, Grade: \$grade");
+  }
+}
+
+void main() {
+  Student student1 = Student(name: "Charlie", grade: 10);
+  student1.displayInfo(); // Output: Name: Charlie, Grade: 10
+
+  Student student2 = Student(); // Default values are used
+  student2.displayInfo(); // Output: Name: Unknown, Grade: 0
+}
+```
+
+---
+
+## How Constructors are Useful in Flutter
+
+In Flutter, you’ll often use constructors to pass data into widgets or classes. For example:
+
+```dart
+class MyWidget extends StatelessWidget {
+  final String title;
+
+  // Constructor to accept a title
+  MyWidget({required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(title);
+  }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      body: Center(
+        child: MyWidget(title: "Hello, Flutter!"), // Passing data through constructor
+      ),
+    ),
+  ));
+}
+```
+
+---
+
+## Summary
+
+- A **constructor** is a special function that initializes an object when it’s created.
+- Use constructors to set initial values or perform setup tasks.
+- Dart provides flexible ways to define constructors, such as default, named, or parameterized constructors.
+
+---
+
+Feel free to explore these examples and adapt them to your projects!

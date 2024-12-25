@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:quizzler_flutter/components/btn_true.dart';
 import 'package:quizzler_flutter/components/correct_icon.dart';
 import 'package:quizzler_flutter/components/wrong_icon.dart';
-// import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../components/btn_false.dart';
 import '../models/quiz_brain.dart';
@@ -26,24 +27,40 @@ class _QuizPageState extends State<QuizPage> {
 
     setState(() {
       if (quizBrain.isFinished() == true) {
-        print('true');
-      } else {
-        print('false');
-      }
-      //TODO: Step 4 - Use IF/ELSE to check if we've reached the end of the quiz. If true, execute Part A, B, C, D.
-      //TODO: Step 4 Part A - show an alert using rFlutter_alert (remember to read the docs for the package!)
-      //HINT! Step 4 Part B is in the quiz_brain.dart
-      //TODO: Step 4 Part C - reset the questionNumber,
-      //TODO: Step 4 Part D - empty out the scoreKeeper.
+        Alert(
+            context: context,
+            type: AlertType.success,
+            title: "DONE!",
+            content: Text(
+              'You\'ve completed the quiz!',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.ubuntu(fontSize: 25),
+            ),
+            buttons: [
+              DialogButton(
+                height: 55,
+                radius: BorderRadius.all(Radius.circular(20)),
+                color: Colors.green,
+                onPressed: () => Navigator.pop(context),
+                child: Text(
+                  "Done".toUpperCase(),
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              )
+            ]).show();
 
-      //TODO: Step 5 - If we've not reached the end, ELSE do the answer checking steps below 👇
-      if (chosenAnswer == correctAnswer) {
-        scoreKeeper.add(CorrectAnsIcon());
-      } else {
-        scoreKeeper.add(WrongAnsIcon());
-      }
+        quizBrain.reset();
 
-      quizBrain.nextQuestion();
+        scoreKeeper = [];
+      } else {
+        if (chosenAnswer == correctAnswer) {
+          scoreKeeper.add(CorrectAnsIcon());
+        } else {
+          scoreKeeper.add(WrongAnsIcon());
+        }
+
+        quizBrain.nextQuestion();
+      }
     });
   }
 
