@@ -1,9 +1,9 @@
-import 'package:quizzler_flutter/models/question.dart';
+import 'question.dart';
 
 class QuizBrain {
-  int _currentQuestionIndex = 0;
+  int _currenteQuestionNumber = 0;
 
-  final List<Question> _questions = [
+  final List<Question> _questionBank = [
     Question(
         questionText: 'Some cats are actually allergic to humans',
         questionAnswer: true),
@@ -51,28 +51,34 @@ class QuizBrain {
   ];
 
   void nextQuestion() {
-    if (_currentQuestionIndex < _questions.length - 1) {
-      _currentQuestionIndex++;
+    if (_currenteQuestionNumber < _questionBank.length - 1) {
+      _currenteQuestionNumber++;
     }
   }
 
   String getQuestionText() {
-    return _questions[_currentQuestionIndex].questionText;
+    return _questionBank[_currenteQuestionNumber].questionText;
   }
 
   bool getQuestionAnswer() {
-    return _questions[_currentQuestionIndex].questionAnswer;
+    return _questionBank[_currenteQuestionNumber].questionAnswer;
   }
 
-  isFinished() {
-    if (_currentQuestionIndex > _questions.length - 1) {
+  //TODO: Step 3 Part A - Create a method called isFinished() here that checks to see if we have reached the last question. It should return (have an output) true if we've reached the last question and it should return false if we're not there yet.
+
+  bool isFinished() {
+    if (_currenteQuestionNumber >= _questionBank.length - 1) {
+      //TODO: Step 3 Part B - Use a print statement to check that isFinished is returning true when you are indeed at the end of the quiz and when a restart should happen.
+
+      print('Now returning true');
       return true;
     } else {
       return false;
     }
   }
 
+  //TODO: Step 4 part B - Create a reset() method here that sets the questionNumber back to 0.
   void reset() {
-    _currentQuestionIndex = 0;
+    _currenteQuestionNumber = 0;
   }
 }
