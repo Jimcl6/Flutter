@@ -24,7 +24,7 @@ class _QuizPageState extends State<QuizPage> {
 
   void answerChecker(bool chosenAnswer) {
     bool correctAnswer = quizBrain.getQuestionAnswer();
-    int scoreCounter = 0;
+
     setState(() {
       if (quizBrain.isFinished() == true) {
         Alert(
@@ -32,7 +32,7 @@ class _QuizPageState extends State<QuizPage> {
             type: AlertType.success,
             title: "DONE!",
             content: Text(
-              'You\'ve completed the quiz! You got $scoreCounter/13',
+              'You\'ve completed the quiz!',
               textAlign: TextAlign.center,
               style: GoogleFonts.ubuntu(fontSize: 25),
             ),
@@ -55,7 +55,6 @@ class _QuizPageState extends State<QuizPage> {
       } else {
         if (chosenAnswer == correctAnswer) {
           scoreKeeper.add(CorrectAnsIcon());
-          scoreCounter++;
         } else {
           scoreKeeper.add(WrongAnsIcon());
         }
