@@ -4,7 +4,7 @@ A Flutter project implementing Dart OOP Concepts, learned from the previous sect
 
 ## Getting Started
 
-This project
+This project is a test of implementation what was learned overall from the previous sections of the course.
 
 A few resources to get you started if this is your first Flutter project:
 
